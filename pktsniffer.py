@@ -2,6 +2,7 @@ import argparse
 import dpkt
 import socket
 import os
+import ipaddress
 
 
 def mac_addr(address):
@@ -64,6 +65,10 @@ def process_pcap(file_path, filter_opts, count):
             eth = parse_ethernet(buf)
             if isinstance(eth.data, dpkt.ip.IP):
                 ip = parse_ip(eth.data)
+                if filter_opts.net:
+                    network = ipaddress.ip_network(filter_opts.net)
+                    if not (ipaddress.ip_address(ip.src) in network or ipaddress.ip_address(ip.dst) in network):
+                        continue
                 if isinstance(ip.data, dpkt.tcp.TCP) and filter_opts.tcp:
                     parse_tcp(ip.data)
                 elif isinstance(ip.data, dpkt.udp.UDP) and filter_opts.udp:
@@ -82,7 +87,7 @@ def main():
     parser.add_argument("host", nargs="?", help="Filter packets by host IP")
     parser.add_argument("port", nargs="?",
                         help="Filter packets by port number")
-    parser.add_argument("-net", nargs="?", help="Filter packets by network")
+    parser.add_argument("-net", help="Filter packets by network")
     parser.add_argument("ip", action="store_true", help="Filter IP packets")
     parser.add_argument("tcp", action="store_true",
                         help="Filter TCP packets")
