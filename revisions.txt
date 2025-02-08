@@ -1,0 +1,17 @@
+commit 2dae9bf4702db3decbcabdc751d5f9daedd86619
+Author: Akira Takeuchi <akira.musico@gmail.com>
+Date:   Thu Feb 6 22:54:37 2025 -0500
+
+    modified readme
+
+commit 592d9ccbe40f56ccc0b52425f4be1d52b0272d67
+Author: Akira Takeuchi <akira.musico@gmail.com>
+Date:   Thu Feb 6 19:00:42 2025 -0500
+
+    re-format output
+
+commit d6818dc0c3de024bed20e9876ff10369002b9c78
+Author: Akira Takeuchi <akira.musico@gmail.com>
+Date:   Thu Feb 6 14:54:17 2025 -0500
+
+    imitial commit
