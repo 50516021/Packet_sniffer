@@ -31,10 +31,11 @@ The main script `pktsniffer.py` will analyze your `.pcap` file
 
 ### To limit packets to show
 
-To limit number of packets to show, use `-c` option:
+To limit number of packets to show, use `-c` option (negative number counts from the last packet):
 
 ```
 <python> pktsniffer -r yourfile.pcap -c 5
+<python> pktsniffer -r yourfile.pcap -c -3
 ```
 
 ### Address & Port filters
@@ -45,7 +46,7 @@ To limit number of packets to show, use `-c` option:
 <python> pktsniffer -r yourfile.pcap -net 192.168.1.0
 ```
 
-`--host` filters packets based on a host network address:
+`--host` filters packets based on a host network address. This option displays packets where the source or destination IP address matches the specified host IP address:
 
 ```
 <python> pktsniffer -r yourfile.pcap --host 192.168.0.1
@@ -67,10 +68,14 @@ To limit number of packets to show, use `-c` option:
 <python> pktsniffer -r yourfile.pcap --ip icmp
 ```
 
-You can also use abbreviations:
+### Author
 
-```
-<python> pktsniffer -r yourfile.pcap --tcp
-<python> pktsniffer -r yourfile.pcap --udp
-<python> pktsniffer -r yourfile.pcap --icmp
-```
+**Akira Takeuchi**
+
+- [github/50516021s](https://github.com/50516021)
+- [Official Homepage](https://akiratakeuchi.com/)
+
+### License
+
+Copyright © 2025, [Akira Takeuchi](https://github.com/50516021).
+Released under the [MIT License](LICENSE).
