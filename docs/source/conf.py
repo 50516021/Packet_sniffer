@@ -3,8 +3,16 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+
+"""
+command to generate documentation:
+    sphinx-apidoc -f -o ./source ../
+    make make latexpdf
+"""
 import os
 import sys
+sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(1, os.path.abspath('../../modules/'))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -25,8 +33,7 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = []
-
-sys.path.insert(0, os.path.abspath('../'))
+html_extra_path = ['extra']
 
 
 # -- Options for HTML output -------------------------------------------------
